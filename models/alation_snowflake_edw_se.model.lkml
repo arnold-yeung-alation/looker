@@ -32,7 +32,7 @@ explore: cross_ds_test {}
 
 explore: cstmr_chrn_risk {}
 
-explore: fin_cstmr {}
+#explore: fin_cstmr {}
 
 explore: fin_cstmr2 {}
 
@@ -99,3 +99,16 @@ explore: snowflake_categorized_cost {}
 explore: thistestabe {}
 
 explore: test {}
+
+explore: fin_cstmr {
+  label: " Finance Detail"
+  join: fin_tx {
+    relationship:  many_to_many
+    sql_on:  ${fin_tx.cstmr_id} = ${fin_cstmr.cust_id} ;;
+  }
+  join: fin_spnd_sgmnt {
+    relationship:  many_to_many
+    sql_on:  ${fin_spnd_sgmnt.spnd_sgmnt_cd} = ${fin_tx.spnd_sgmnt_cd_1} ;;
+  }
+}
+
