@@ -1,4 +1,4 @@
-connection: "snowflake-edw-se"
+connection: "edw-snowflake-se"
 
 # include all the views
 include: "/views/**/*.view.lkml"
@@ -111,4 +111,3 @@ explore: fin_cstmr {
     sql_on:  ${fin_spnd_sgmnt.spnd_sgmnt_cd} = ${fin_tx.spnd_sgmnt_cd_1} ;;
   }
 }
-
